@@ -1,0 +1,215 @@
+{
+  "$defs": {
+    "Entry": {
+      "properties": {
+        "id": {
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "precision": {
+          "$ref": "#/$defs/Precision",
+          "default": "day"
+        },
+        "time": {
+          "anyOf": [
+            {
+              "format": "time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Time"
+        },
+        "event": {
+          "description": "one dated fact, past tense, neutral",
+          "minLength": 8,
+          "title": "Event",
+          "type": "string"
+        },
+        "actors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Actors",
+          "type": "array"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/Source"
+          },
+          "minItems": 1,
+          "title": "Sources",
+          "type": "array"
+        },
+        "category": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "correspondence, payment, meeting, filing ...",
+          "title": "Category"
+        },
+        "disputed": {
+          "default": false,
+          "title": "Disputed",
+          "type": "boolean"
+        },
+        "asserted_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "party whose account this is",
+          "title": "Asserted By"
+        },
+        "event_key": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "same real-world event across sources; differing dates are conflicts",
+          "title": "Event Key"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        },
+        "notes": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Notes"
+        }
+      },
+      "required": [
+        "id",
+        "date",
+        "event",
+        "sources"
+      ],
+      "title": "Entry",
+      "type": "object"
+    },
+    "Precision": {
+      "enum": [
+        "day",
+        "month",
+        "year",
+        "approx"
+      ],
+      "title": "Precision",
+      "type": "string"
+    },
+    "Source": {
+      "properties": {
+        "doc": {
+          "description": "document title or bundle tab, e.g. 'Email Tan to Lim'",
+          "title": "Doc",
+          "type": "string"
+        },
+        "pincite": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "page/para, e.g. 'p 2' or '[14]'",
+          "title": "Pincite"
+        },
+        "bundle_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "bundle page, e.g. 'AB-123'",
+          "title": "Bundle Ref"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        }
+      },
+      "required": [
+        "doc"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "matter": {
+      "title": "Matter",
+      "type": "string"
+    },
+    "parties": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Parties",
+      "type": "array"
+    },
+    "entries": {
+      "items": {
+        "$ref": "#/$defs/Entry"
+      },
+      "title": "Entries",
+      "type": "array"
+    }
+  },
+  "required": [
+    "matter",
+    "entries"
+  ],
+  "title": "Chronology",
+  "type": "object"
+}

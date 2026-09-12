@@ -1,0 +1,42 @@
+# Entries drawn from Lim Bee Hoon's first affidavit. Note the inspection date differs
+# from the minutes (event_key: tuas-inspection) -- that is a conflict the tool will flag.
+matter: Alpha Pte Ltd v Beta Pte Ltd (HC/OC 123/2026)
+parties: [Alpha Pte Ltd, Beta Pte Ltd]
+
+entries:
+  - id: msa-signed
+    date: 2024-03-01
+    event: Alpha and Beta executed the Master Services Agreement.
+    actors: [Alpha Pte Ltd, Beta Pte Ltd]
+    sources:
+      - { doc: Lim affidavit (1st), pincite: "[6]" }
+    event_key: msa-execution
+
+  - id: verbal-assurance
+    date: 2024-05-01
+    precision: month
+    event: Tan allegedly assured Lim by telephone that units would meet the revised tolerance.
+    actors: [Tan Ah Kow, Lim Bee Hoon]
+    disputed: true
+    asserted_by: Beta Pte Ltd
+    sources:
+      - { doc: Lim affidavit (1st), pincite: "[11]" }
+    notes: Alpha denies any such call; no contemporaneous record.
+
+  - id: inspection-per-lim
+    date: 2024-09-05
+    event: Alpha's engineer inspected the rejected units at Tuas.
+    actors: [Tan Ah Kow, Lim Bee Hoon]
+    asserted_by: Beta Pte Ltd
+    sources:
+      - { doc: Lim affidavit (1st), pincite: "[19]" }
+    event_key: tuas-inspection
+
+  - id: stop-payment
+    date: 2024-09-30
+    event: Beta's board resolved to withhold payment of outstanding Alpha invoices.
+    actors: [Beta Pte Ltd]
+    category: decision
+    sources:
+      - { doc: Lim affidavit (1st), pincite: "[23]" }
+      - { doc: Board minutes, bundle_ref: AB-88 }

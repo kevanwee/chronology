@@ -1,0 +1,55 @@
+# Entries drawn from the correspondence bundle. Fictional matter.
+matter: Alpha Pte Ltd v Beta Pte Ltd (HC/OC 123/2026)
+parties: [Alpha Pte Ltd, Beta Pte Ltd]
+
+entries:
+  - id: msa-signed
+    date: 2024-03-01
+    event: Alpha and Beta executed the Master Services Agreement.
+    actors: [Alpha Pte Ltd, Beta Pte Ltd]
+    category: contract
+    sources:
+      - { doc: MSA, pincite: signature page, bundle_ref: AB-1 }
+    event_key: msa-execution
+
+  - id: po-issued
+    date: 2024-06-14
+    event: Beta issued Purchase Order 4471 for 2,000 units.
+    actors: [Beta Pte Ltd]
+    category: order
+    sources:
+      - { doc: PO 4471, bundle_ref: AB-44 }
+
+  - id: delivery-1
+    date: 2024-08-02
+    event: First tranche of 800 units delivered to Beta's Tuas facility.
+    actors: [Alpha Pte Ltd]
+    category: delivery
+    sources:
+      - { doc: Delivery order DO-1190, bundle_ref: AB-58 }
+
+  - id: complaint-email
+    date: 2024-08-19
+    time: "16:42"
+    event: Lim (Beta) emailed Tan (Alpha) reporting defects in 120 units from the first tranche.
+    actors: [Lim Bee Hoon, Tan Ah Kow]
+    category: correspondence
+    sources:
+      - { doc: Email Lim to Tan, bundle_ref: AB-61 }
+
+  - id: site-meeting
+    date: 2024-09-03
+    event: Site meeting at Tuas; Alpha's engineer inspected the rejected units.
+    actors: [Tan Ah Kow, Lim Bee Hoon]
+    category: meeting
+    sources:
+      - { doc: Meeting minutes, bundle_ref: AB-70 }
+    event_key: tuas-inspection
+
+  - id: lod
+    date: 2025-11-14
+    event: Alpha's solicitors sent a letter of demand for S$412,000 in unpaid invoices.
+    actors: [Alpha Pte Ltd]
+    category: correspondence
+    sources:
+      - { doc: Letter of demand, bundle_ref: AB-102 }
