@@ -77,8 +77,8 @@ the audit trail for who said what.
 
 ## Related projects
 
-`bundle_ref` values come from a bundle built with [bundlebuild](../bundlebuild). Authorities
-cited in the chronology's commentary can be checked with [citecheck](../citecheck).
+`bundle_ref` values come from a bundle built with [bundlebuild](https://github.com/kevanwee/bundlebuild). Authorities
+cited in the chronology's commentary can be checked with [citecheck](https://github.com/kevanwee/citecheck).
 
 ## License
 
