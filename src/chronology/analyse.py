@@ -34,7 +34,7 @@ def conflicts(c: Chronology) -> list[Conflict]:
             groups[e.event_key].append(e)
     out = []
     for key, es in groups.items():
-        if len({e.date for e in es}) > 1:
+        if len({(e.date, e.precision, e.time, e.event, e.asserted_by) for e in es}) > 1:
             out.append(Conflict(key, sorted(es, key=Entry.sort_key)))
     return out
 
